@@ -9,7 +9,7 @@
  * @return boolean
  */
 function Twiloop_sql_update($DB, $table, $data, $condition = '') {
-    $req_set = [];
+    $reqSet = [];
     $reqValues = [];
 
     if(!empty($condition)) {
@@ -18,14 +18,14 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
 
     foreach ($data as $k => $v) {
         $reqParam = ":{$key}";
-        $req_set[] = "{$k} = {$reqParam}";
-        $reqValues[$reqParam] = $DB->quote($v);
+        $reqSet[] = "{$k} = {$reqParam}";
+        $reqValues[$reqParam] = $v;
     }
 
-    $req_set = implode(', ', $req_set);
+    $reqSet = implode(', ', $reqSet);
 
     try {
-        $sql_add = $DB->prepare("DELETE FROM {$table} SET {$req_set}{$condition}");
+        $sql_add = $DB->prepare("DELETE FROM {$table} SET {$reqSet}{$condition}");
         $sql_add->execute($reqValues);
         return TRUE;
     } catch (PDOException $e) {

@@ -12,12 +12,12 @@ function Twiloop_sql_insert($DB, $table, $data) {
     $reqParams = [];
     $reqValues = [];
 
-    foreach ($data as $key => $val) {
-        $reqKeys[] = $key;
-        $reqParam = ":{$key}";
+    foreach ($data as $k => $v) {
+        $reqKeys[] = $k;
+        $reqParam = ":{$k}";
 
         $reqParams[] = $reqParam;
-        $reqValues[$reqParam] = $DB->quote($val);
+        $reqValues[$reqParam] = $v;
     }
 
     $keys = implode(', ', $reqKeys);

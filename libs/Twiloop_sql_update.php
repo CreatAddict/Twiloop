@@ -17,7 +17,7 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
     }
 
     foreach ($data as $k => $v) {
-        $reqParam = ":{$key}";
+        $reqParam = ":{$k}";
         $reqSet[] = "{$k} = {$reqParam}";
         $reqValues[$reqParam] = $v;
     }

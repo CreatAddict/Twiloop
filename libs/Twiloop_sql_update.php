@@ -24,13 +24,13 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
     }
 
     $reqSet = implode(', ', $reqSet);
-
     try {
-        $req = $DB->prepare("DELETE FROM {$table} SET {$reqSet}{$condition}");
-        $req->execute($reqValues);
-        return TRUE;
+        $req = $DB->prepare("UPDATE {$table} SET {$reqSet}{$condition}");
+        echo $req->execute($reqValues);
     } catch (PDOException $e) {
         echo $e;
         return FALSE;
     }
 }
+
+?>

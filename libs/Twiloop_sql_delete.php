@@ -7,7 +7,7 @@
  * @param type $condition
  * @return boolean
  */
-function Twiloop_sql_update($DB, $table, $condition) {
+function Twiloop_sql_delete($DB, $table, $condition) {
     $req = '';
 
     if(!empty($condition)) {

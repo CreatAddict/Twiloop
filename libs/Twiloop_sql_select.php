@@ -9,7 +9,7 @@
 * @param type $disting
 * @return object
 */
-function Twiloop_sql_select($DB, $champ, $condition = '', $data = '', $fetchall = false, $disting = false) {
+function Twiloop_sql_select($DB, $table, $champ, $condition = '', $data = '', $fetchall = false, $disting = false) {
     $req = '';
 
     if(!empty($condition)) {

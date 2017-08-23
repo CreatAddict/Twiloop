@@ -9,6 +9,7 @@
  * @return boolean
  */
 function Twiloop_sql_update($DB, $table, $data, $condition = '') {
+    $req = '';
     $reqSet = [];
     $reqValues = [];
 
@@ -25,8 +26,8 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
     $reqSet = implode(', ', $reqSet);
 
     try {
-        $sql_add = $DB->prepare("DELETE FROM {$table} SET {$reqSet}{$condition}");
-        $sql_add->execute($reqValues);
+        $req = $DB->prepare("DELETE FROM {$table} SET {$reqSet}{$condition}");
+        $req->execute($reqValues);
         return TRUE;
     } catch (PDOException $e) {
         echo $e;

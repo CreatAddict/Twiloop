@@ -6,6 +6,7 @@
  * @return string
  */
 
- function Twiloop_debug($variable) {
-     echo '<pre>'.print_r($variable, true).'</pre>';
- }
+function Twiloop_debug($variable)
+{
+    echo '<pre>'.print_r($variable, true).'</pre>';
+}

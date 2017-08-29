@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
 * Select DB
@@ -10,20 +10,21 @@
 * @return object
 */
 
-function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $fetchall = false, $disting = false) {
+function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $fetchall = false, $disting = false)
+{
     $req = '';
 
-    if($disting === true) {
+    if ($disting === true) {
         $champ = "DISTING {$champ}";
     }
 
     try {
         $req = $DB->prepare("SELECT {$champ} FROM {$table} {$extend_sql}");
         $status = $req->execute($data);
-        if($status === FALSE) {
-            return FALSE;
-        } ELSE {
-            if($fetchall === true) {
+        if ($status === false) {
+            return false;
+        } else {
+            if ($fetchall === true) {
                 return $req->fetchAll();
             } else {
                 return $req->fetch();
@@ -31,8 +32,6 @@ function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $
         }
     } catch (PDOException $e) {
         echo $e;
-        return FALSE;
+        return false;
     }
 }
-
-?>

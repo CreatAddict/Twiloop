@@ -39,7 +39,7 @@ if (!defined('TWILOOP_LANG_DIR')) {
 /**
  * Inclu le bon fichier de langue si la variable est définie
  */
-if(isset($langue) && $langue != '') {
+if (isset($langue) && $langue != '') {
     include TWILOOP_LANG_DIR . (($langue != '') ? $langue : 'fr') . '.php';
 }
 
@@ -50,8 +50,8 @@ $dossier = opendir(TWILOOP_LIBS_DIR);
 
 if ($dossier) {
     while (false !== ($fichier = readdir($dossier))) {
-            if (strpos($fichier, 'Twiloop_') !== FALSE && strpos($fichier, '.php') !== FALSE) {
-                include TWILOOP_LIBS_DIR.$fichier;
-            }
+        if (strpos($fichier, 'Twiloop_') !== false && strpos($fichier, '.php') !== false) {
+            include TWILOOP_LIBS_DIR.$fichier;
+        }
     }
 }

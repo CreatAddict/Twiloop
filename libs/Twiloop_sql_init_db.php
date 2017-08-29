@@ -8,9 +8,11 @@
  * @param type $db_pass
  * @return boolean|PDO
  */
-function Twiloop_sql_init_db() {
+ 
+function Twiloop_sql_init_db()
+{
     global $db_host, $db_name, $db_user, $db_pass;
-    if($db_name != '') {
+    if ($db_name != '') {
         $db_name = ';dbname=' . $db_name;
     }
     try {
@@ -19,6 +21,6 @@ function Twiloop_sql_init_db() {
         $DB->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         return $DB;
     } catch (PDOException $e) {
-        return FALSE;
+        return false;
     }
 }

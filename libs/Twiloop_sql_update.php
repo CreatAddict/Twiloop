@@ -8,12 +8,14 @@
  * @param type $condition
  * @return boolean
  */
-function Twiloop_sql_update($DB, $table, $data, $condition = '') {
+ 
+function Twiloop_sql_update($DB, $table, $data, $condition = '')
+{
     $req = '';
     $reqSet = [];
     $reqValues = [];
 
-    if(!empty($condition)) {
+    if (!empty($condition)) {
         $condition = " WHERE {$condition}";
     }
 
@@ -27,15 +29,13 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
     try {
         $req = $DB->prepare("UPDATE {$table} SET {$reqSet}{$condition}");
         $status = $req->execute($reqValues);
-        if($status === FALSE) {
-            return FALSE;
+        if ($status === false) {
+            return false;
         } else {
-            return TRUE;
+            return true;
         }
     } catch (PDOException $e) {
         echo $e;
-        return FALSE;
+        return false;
     }
 }
-
-?>

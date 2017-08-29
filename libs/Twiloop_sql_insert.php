@@ -7,7 +7,9 @@
  * @param type $data
  * @return boolean
  */
-function Twiloop_sql_insert($DB, $table, $data) {
+ 
+function Twiloop_sql_insert($DB, $table, $data)
+{
     $reqKeys = [];
     $reqParams = [];
     $reqValues = [];

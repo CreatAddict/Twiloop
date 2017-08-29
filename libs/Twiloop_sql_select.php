@@ -19,11 +19,15 @@ function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $
 
     try {
         $req = $DB->prepare("SELECT {$champ} FROM {$table} {$extend_sql}");
-        $req->execute($data);
-        if($fetchall === true) {
-            return $req->fetchAll();
-        } else {
-            return $req->fetch();
+        $status = $req->execute($data);
+        if($status === FALSE) {
+            return FALSE;
+        } ELSE {
+            if($fetchall === true) {
+                return $req->fetchAll();
+            } else {
+                return $req->fetch();
+            }
         }
     } catch (PDOException $e) {
         echo $e;

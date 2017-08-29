@@ -26,8 +26,12 @@ function Twiloop_sql_update($DB, $table, $data, $condition = '') {
     $reqSet = implode(', ', $reqSet);
     try {
         $req = $DB->prepare("UPDATE {$table} SET {$reqSet}{$condition}");
-        $req->execute($reqValues);
-        return $req->rowCount();
+        $status = $req->execute($reqValues);
+        if($status === FALSE) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     } catch (PDOException $e) {
         echo $e;
         return FALSE;

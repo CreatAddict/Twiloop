@@ -16,8 +16,12 @@ function Twiloop_sql_delete($DB, $table, $condition) {
 
     try {
         $req = $DB->prepare("DELETE FROM {$table}{$condition}");
-        $req->execute();
-        return $req->rowCount();
+        $status = $req->execute();
+        if($status === FALSE) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     } catch (PDOException $e) {
         echo $e;
         return FALSE;

@@ -4,7 +4,7 @@
  * Récupère l'ip du visiteur
  * @return ip
  */
- Ò
+ 
 function Twiloop_get_ip()
 {
     $ip = null;

@@ -25,7 +25,6 @@ function Twiloop_sql_delete($DB, $table, $condition)
             return true;
         }
     } catch (PDOException $e) {
-        echo $e;
         return false;
     }
 }

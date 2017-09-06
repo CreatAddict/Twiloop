@@ -30,7 +30,6 @@ function Twiloop_sql_insert($DB, $table, $data)
         $req->execute($reqValues);
         return true;
     } catch (PDOException $e) {
-        echo $e->getMessage();
         return false;
     }
 }

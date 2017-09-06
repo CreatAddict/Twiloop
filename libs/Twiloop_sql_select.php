@@ -31,7 +31,6 @@ function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $
             }
         }
     } catch (PDOException $e) {
-        echo $e;
         return false;
     }
 }

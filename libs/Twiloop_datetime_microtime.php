@@ -6,7 +6,7 @@
 * @return string
 */
 
-function Twiloop_debug($format = '')
+function Twiloop_datetime_microtime($format = '')
 {
     if($format == '') {
         $format == 'YmdHisu';

@@ -8,8 +8,8 @@
 
 function Twiloop_debug($format)
 {
-    if($format == 'Y-m-d H:i:s.u') {
-
+    if($format == '') {
+        $format == 'Y-m-d H:i:s.u';
     }
     $time =microtime(true);
     $micro_time=sprintf("%06d",($time - floor($time)) * 1000000);

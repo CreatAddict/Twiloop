@@ -15,7 +15,7 @@ function Twiloop_sql_select($DB, $table, $champ, $extend_sql = '', $data = [], $
     $req = '';
 
     if ($disting === true) {
-        $champ = "DISTING {$champ}";
+        $champ = "DISTINCT {$champ}";
     }
 
     try {
